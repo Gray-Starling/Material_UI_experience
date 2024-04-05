@@ -1,17 +1,33 @@
 import { MenuOutlined } from '@mui/icons-material'
+import InboxIcon from '@mui/icons-material/MoveToInbox'
+import MailIcon from '@mui/icons-material/Mail'
+import CatchingPokemonRoundedIcon from '@mui/icons-material/CatchingPokemonRounded'
 import {
 	AppBar,
+	Box,
 	Container,
+	Divider,
 	Drawer,
 	IconButton,
+	List,
+	ListItem,
+	ListItemButton,
+	ListItemIcon,
+	ListItemText,
 	Toolbar,
 	Typography,
 } from '@mui/material'
 import { useState } from 'react'
 
-export const Header = () => {
+const menu = [
+	{
+		linkTitle: 'All Pokémon',
+		linkIcon: <CatchingPokemonRoundedIcon />,
+	},
+]
 
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
+export const Header = () => {
+	const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 
 	return (
 		<AppBar position='sticky' sx={{ mb: '10px' }}>
@@ -27,10 +43,20 @@ export const Header = () => {
 						anchor='right'
 						open={isSideMenuOpen}
 						onClose={() => setIsSideMenuOpen(false)}
-            // PaperProps={{
-            //   sx: { width: "10rem" },
-            // }}
-					>123</Drawer>
+						PaperProps={{
+							sx: { width: '300px' },
+						}}>
+						<List>
+							{menu.map((item, index) => (
+								<ListItem key={index} disablePadding>
+									<ListItemButton>
+										<ListItemIcon>{item.linkIcon}</ListItemIcon>
+										<ListItemText primary={item.linkTitle} />
+									</ListItemButton>
+								</ListItem>
+							))}
+						</List>
+					</Drawer>
 				</Toolbar>
 			</Container>
 		</AppBar>
