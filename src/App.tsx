@@ -10,7 +10,7 @@ export const App = () => {
 
 	const setPageRender = () => {
 		const pages: Page = {
-			"main": <div>Home11</div>,
+			"Home": <div>Home11</div>,
 			'All Pokémon': <div>All Pokémon</div>,
 		}
 		return pages[currentLink] || <div>404</div>
