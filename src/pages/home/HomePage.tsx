@@ -1,7 +1,9 @@
-import { Container } from '@mui/material'
+import { Carousel } from '../../modules/carousel/Carousel'
 
 export const HomePage = () => {
-  return (
-    <Container maxWidth="xl" >HomePage</Container>
-  )
+	return (
+		<>
+			<Carousel />
+		</>
+	)
 }
