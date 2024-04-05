@@ -1,5 +1,6 @@
 import { ReactElement, useState } from 'react'
 import { Header } from './cmponents/header/Header'
+import { HomePage } from './pages/home/HomePage'
 
 type Page = {
 	[key: string]: ReactElement
@@ -10,7 +11,7 @@ export const App = () => {
 
 	const setPageRender = () => {
 		const pages: Page = {
-			"Home": <div>Home11</div>,
+			Home: <HomePage />,
 			'All Pokémon': <div>All Pokémon</div>,
 		}
 		return pages[currentLink] || <div>404</div>
