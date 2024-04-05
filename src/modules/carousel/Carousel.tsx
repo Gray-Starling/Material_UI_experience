@@ -2,8 +2,10 @@ import { Box } from '@mui/material'
 import Slide1 from '@/assets/images/carousel/slide_1.jpg'
 import Slide2 from '@/assets/images/carousel/slide_2.jpg'
 import { useEffect, useMemo, useState } from 'react'
+import { APP__SETTINGS } from '@/AppSetings'
 
 export const Carousel = () => {
+  const {homePageCarouselDelay} = APP__SETTINGS
 	const images = useMemo(() => [Slide1, Slide2], [])
 	const [carouselImage, setCarouselImage] = useState(Slide1)
 	const [currentIndex, setCurrentIndex] = useState(0)
@@ -17,10 +19,10 @@ export const Carousel = () => {
 			const nextSlideIndex = pickNextSlide(currentIndex, images)
 			setCurrentIndex(nextSlideIndex)
 			setCarouselImage(images[nextSlideIndex])
-		}, 2000)
+		}, homePageCarouselDelay)
 
 		return () => clearInterval(interval)
-	}, [currentIndex, images])
+	}, [currentIndex, images, homePageCarouselDelay])
 	return (
 		<Box sx={{ maxWidth: '100%', maxHeight: '100%' }}>
 			<Box
