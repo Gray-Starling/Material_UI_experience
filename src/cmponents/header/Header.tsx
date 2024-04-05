@@ -1,32 +1,21 @@
+import { useState } from 'react'
+
+import { SideMenuBar } from '../../modules/sideMenuBar/SideMenuBar'
+
 import { MenuOutlined } from '@mui/icons-material'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
-import MailIcon from '@mui/icons-material/Mail'
-import CatchingPokemonRoundedIcon from '@mui/icons-material/CatchingPokemonRounded'
 import {
 	AppBar,
-	Box,
 	Container,
-	Divider,
-	Drawer,
 	IconButton,
-	List,
-	ListItem,
-	ListItemButton,
-	ListItemIcon,
-	ListItemText,
 	Toolbar,
 	Typography,
 } from '@mui/material'
-import { useState } from 'react'
 
-const menu = [
-	{
-		linkTitle: 'All Pokémon',
-		linkIcon: <CatchingPokemonRoundedIcon />,
-	},
-]
+type HeaderProps = {
+	linkTo: (arg: string) => void
+}
 
-export const Header = () => {
+export const Header = ({linkTo}: HeaderProps) => {
 	const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 
 	return (
@@ -39,24 +28,7 @@ export const Header = () => {
 					<IconButton color='inherit' onClick={() => setIsSideMenuOpen(true)}>
 						<MenuOutlined />
 					</IconButton>
-					<Drawer
-						anchor='right'
-						open={isSideMenuOpen}
-						onClose={() => setIsSideMenuOpen(false)}
-						PaperProps={{
-							sx: { width: '300px' },
-						}}>
-						<List>
-							{menu.map((item, index) => (
-								<ListItem key={index} disablePadding>
-									<ListItemButton>
-										<ListItemIcon>{item.linkIcon}</ListItemIcon>
-										<ListItemText primary={item.linkTitle} />
-									</ListItemButton>
-								</ListItem>
-							))}
-						</List>
-					</Drawer>
+					<SideMenuBar isOpen={isSideMenuOpen} setIsOpen={setIsSideMenuOpen} linkTo={linkTo}/>
 				</Toolbar>
 			</Container>
 		</AppBar>
