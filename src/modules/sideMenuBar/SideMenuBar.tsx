@@ -1,6 +1,7 @@
 import { menu } from './const'
 
 import {
+	Box,
 	Divider,
 	Drawer,
 	List,
@@ -31,15 +32,15 @@ export const SideMenuBar = ({
 			}}>
 			<List>
 				{menu.map((item, index) => (
-					<>
-						<ListItem key={index}>
+					<Box key={index}>
+						<ListItem>
 							<ListItemButton onClick={() => linkTo(item.linkTitle)}>
 								<ListItemIcon>{item.linkIcon}</ListItemIcon>
 								<ListItemText primary={item.linkTitle} />
 							</ListItemButton>
 						</ListItem>
 						{item.linkTitle === 'Home' && <Divider />}
-					</>
+					</Box>
 				))}
 			</List>
 		</Drawer>

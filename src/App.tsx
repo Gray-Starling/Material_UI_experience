@@ -1,5 +1,5 @@
 import { ReactElement, useState } from 'react'
-import { Header } from './cmponents/header/Header'
+import { Header } from './components/header/Header'
 import { HomePage } from './pages/home/HomePage'
 
 type Page = {
@@ -7,11 +7,11 @@ type Page = {
 }
 
 export const App = () => {
-	const [currentLink, setCurrentLink] = useState('main')
+	const [currentLink, setCurrentLink] = useState('Home')
 
 	const setPageRender = () => {
 		const pages: Page = {
-			Home: <HomePage />,
+			"Home": <HomePage />,
 			'All Pokémon': <div>All Pokémon</div>,
 		}
 		return pages[currentLink] || <div>404</div>

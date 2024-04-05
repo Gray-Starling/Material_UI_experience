@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { SideMenuBar } from '../../modules/sideMenuBar/SideMenuBar'
+import { SideMenuBar } from '@/modules/sideMenuBar/SideMenuBar'
 
 import { MenuOutlined } from '@mui/icons-material'
 import {
@@ -19,7 +19,7 @@ export const Header = ({linkTo}: HeaderProps) => {
 	const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 
 	return (
-		<AppBar position='sticky' sx={{ mb: '10px' }}>
+		<AppBar position='sticky' >
 			<Container maxWidth='xl'>
 				<Toolbar>
 					<Typography variant='h6' component='span' sx={{ flexGrow: '1' }}>
