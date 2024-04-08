@@ -1,6 +1,6 @@
-import { Container, Grid, Typography } from '@mui/material'
+import { Container, Divider, Grid, Typography } from '@mui/material'
 import { Carousel } from '../../modules/carousel/Carousel'
-import { TextReview } from '@/components/textReview/TextReview'
+import { WikiBlock } from '@/components/wikiBlock/WikiBlock'
 
 export const HomePage = () => {
 	return (
@@ -11,11 +11,12 @@ export const HomePage = () => {
 				</Grid>
 				<Grid item xs={6}>
 					<Typography variant='h3' component='h3' align='center'>
-						Material UI is awesome!!!
+						"Pokemon" is awesome!!!
 					</Typography>
 				</Grid>
 			</Grid>
-			<TextReview />
+			<WikiBlock />
+			<Divider variant="middle" sx={{mt: "20px", mb: "20px"}}/>
 		</Container>
 	)
 }
