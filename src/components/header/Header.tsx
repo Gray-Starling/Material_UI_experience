@@ -19,8 +19,8 @@ export const Header = ({linkTo}: HeaderProps) => {
 	const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 
 	return (
-		<AppBar position='sticky' >
-			<Container maxWidth='xl'>
+		<AppBar position='sticky' sx={{mb: "20px"}}>
+			<Container maxWidth='xl' disableGutters>
 				<Toolbar>
 					<Typography variant='h6' component='span' sx={{ flexGrow: '1' }}>
 						Material UI Experience
